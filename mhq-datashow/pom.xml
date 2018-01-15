@@ -110,6 +110,12 @@
 			<artifactId>nb-product-app</artifactId>
 			<version>1.0</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>mhq-hive</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 	</dependencies>
 
