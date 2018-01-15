@@ -1,0 +1,86 @@
+server:
+  port: 8018
+  context-path: /mhq-datashow
+  tomcat-uri-encoding: UTF-8
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mhq_datashow?useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password: 123456
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+
+#基础配置
+BaseInfo:
+  switchmhq: true #开关 true 为免登陆需要手动配置token 信息 false 需要后台默认登陆
+  sitecode: S1 #默认S1
+  hivetoken: a8cb46286ac3fdb6df1bb2e8047a08d5
+  hxytoken: vTJJTGGpJMyHpXxmYnAI
+  hiveloginname: admin
+  hivepassword: admin
+
+#配置IP
+ConfigUrl:
+  tpp_ip: http://172.16.131.74:19207 #tpp地址
+  hive_ip: http://172.16.131.74 #hive地址
+  pgc_ip: http://59.110.166.233:9205 #pgc ip地址
+  img_ip: http://172.16.131.74:19207
+
+  #####################################登陆模块###########################################
+  hxy_login: http://media.bigdata.chinamcloud.com/api/mazhan/gettoken?secret=10v0)HFA*EGKJQGVTFKDJC&username=jntv2017 #华西云登陆地址
+  hive_login: /api/authorize #hive 登陆地址
+  sobeyhive_http_system: SobeyHive #hive登陆配置 sobeyhive-http-operate-site:S1 sobeyhive-http-site:S1 由于站点可配置 代码中写死
+
+  ####################################内容库模块##########################################
+  resource_upload_url: /search/full-search #pgc上传地址
+  upload_path_saerch: /entity/initialize-data?permission=1 #查询图片地址列表
+
+  ####################################华西云模块 ----- 互联网线索华西云版本 ##########################################
+  internet_news_url: http://yqapi.chinamcloud.com/haihe-service/directSite/news.do?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVBdCI6Ijk5OTktMTAtMTYgMTk6MDY6MzYiLCJ1c2VybmFtZSI6IkJlbmdCdSIsInRzIjoiMTUwODE1Mzc2NjYzMyJ9.FDBvRdPyYDyFLQNLLtJchG5DaYwUJ42Ap0SBpLXpZeY #获取互联网新闻列表（来自云线索 不配置siteCode 默认S1）
+  internet_news_saerchid: http://yqapi.chinamcloud.com/haihe-service/directSite/newsDetail.do?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVBdCI6Ijk5OTktMTAtMTYgMTk6MDY6MzYiLCJ1c2VybmFtZSI6IkJlbmdCdSIsInRzIjoiMTUwODE1Mzc2NjYzMyJ9.FDBvRdPyYDyFLQNLLtJchG5DaYwUJ42Ap0SBpLXpZeY #查询互联网新闻详情
+
+  ####################################华西云模块 ----- 热点新闻##########################################
+  hot_news: http://yqapi.chinamcloud.com/haihe-service/api/cgtn/hotEvent.do #实时热点新新闻
+
+  ####################################选题模块#############################################
+  topice_url: /Sc-Planning/rest/planning/search #选题查询url
+  topice_task_url: /Sc-TaskMonitoring/rest/plan/task/relationTree/ #选题指派查询
+
+  ####################################采访模块#############################################
+  taskprogress_url: /Sc-TaskMonitoring/rest/task/history/ #采访任务轨迹查询
+  interview_search_url: /Sc-Interview/rest/search #采访任务查询列表地址
+
+  ####################################串联单模块NS###########################################
+  serie_search_ns: http://172.16.131.74:19207/UserInterFace/rest/s/llist/getLlistQuery?columid={columid}&startTime={startTime}&endTime={endTime} #查询串联单列表
+  serie_list_searchid_url_ns: http://172.16.31.81:8080/UserInterFace/rest/s/llist/getLlistno/{id}.json #查询串联单详情
+
+  ####################################串联单模块MCH2.0###########################################
+  serie_search_mch: http://172.16.131.74:9081/news-adapter/rest/s/llist/getLlistByconditionsQuery.json?isCurrentDate=false&columnid={columid}&startTime={startTime}&endTime={endTime} #查询串联单列表
+  serie_list_searchid_url_mch: http://172.16.131.74:9081/news-adapter/rest/s/llist/getLlistno/{id}.json #查询串联单详情
+
+  ###################################pgc模块##############################################
+  pgc_getreports: /pgc-hive/rest/interface/list.json?key=mapAuther&serveType=pgc_hive&timestamp={timestamp}&start={starttime}&end={endtime} #获取记者列表
+
+  ###################################爆料接口##############################################
+  broke_news: /tpp/rest/content/clue/search #电话爆料
+  broke_statistics: /tpp/rest/content/clue/statistics?groupByField={groupByField}&desc=true #数据分析
+  broke_fl: /tpp/rest/core/fixitem?type={type} #基础数据
+
+  #***********************************生产力统计*******************************************#
+  product_publish: http://172.16.131.74:9209/sobey-mchEditor/count/publish?type={type} #微博/微信发布总量统计,按人数top5排列
+  product_newest: http://172.16.131.74:9209/sobey-mchEditor/count/newest?type={type} #最新微博/微信发布总量统计,按人数top5排列
+  product_querybysql: http://172.16.128.20:8080/UserInterFace/rest/s/doc/queryBySQL.json #写稿

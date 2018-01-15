@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sobey</groupId>
+	<artifactId>mhq-datashow</artifactId>
+	<version>mch-2.0</version>
+	<packaging>war</packaging>
+
+	<name>mhq-datashow</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<artifactId>parent</artifactId>
+		<groupId>com.sobey</groupId>
+		<version>1.0</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.7</java.version>
+	</properties>
+	<dependencies>
+		<!--基础包-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>datashowbase</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!--登陆基础包-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>login</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!--互联网线索-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>hotnews</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!--热点新闻-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>internews</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!--选题-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>topice</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!--内容库-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>uploadcotent</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!--采访-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>interview</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!--gis-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>gis</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!--串联单-->
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>serieList</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>brokenews</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>back-stage</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>ratings</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>open-cross-domain</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>productivity</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sobey</groupId>
+			<artifactId>nb-product-app</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
